@@ -1,5 +1,4 @@
 #리스트_라인편집기
-'''
 class ArrayList:
     def __init__( self ):
         self.items = []
@@ -69,7 +68,6 @@ def myLineEditor():
             outfile.close
 
 myLineEditor()
-'''
 
 
 #리스트 비교
@@ -135,6 +133,7 @@ setA.intersect(setB).display('A∩B')
 setA.difference(setB).display('A=B')
 '''
 
+'''
 top = []
 def isEmpty():
     return len(top) == 0
@@ -196,5 +195,5 @@ for _ in range(2): even.pop()
 for _ in range(3): odd.pop()
 print('스텍 even push 2회 : ', even)
 print('스텍 odd push 3회 : ', odd)
-
+'''
 
