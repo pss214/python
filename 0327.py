@@ -1,4 +1,5 @@
 #리스트_라인편집기
+'''
 class ArrayList:
     def __init__( self ):
         self.items = []
@@ -68,7 +69,7 @@ def myLineEditor():
             outfile.close
 
 myLineEditor()
-
+'''
 
 #리스트 비교
 '''
