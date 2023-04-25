@@ -76,12 +76,12 @@ def evalPostfix(expr):
         else:
             s.push(float(token))
     return s.pop()
-'''
-infix1 = ['8','/','3','-','3','3','2','*','+']
+
+infix1 = ['8','/','3','-','3','+','3','2','*','+']
 infix2 = ['1','2','/','4','*','1','4','/', '*']
 print(infix1,'-->',evalPostfix(infix1))
 print(infix2,'-->',evalPostfix(infix2))
-'''
+
 
 def precedence(op):
     if op == '(' or op == ')':return 0
@@ -114,12 +114,12 @@ def Infix2Postfix(expr):
         output.append(s.pop())
     return output
 infix1 = '8/2-3+(3*2)'
-infix2 = ['1','/','2','*','4','*','(''1','/','4',')']
+infix2 = ['1','/','2','*','4','*','(','1','/','4',')']
 postfix1 = Infix2Postfix(infix1)
 postfix2 = Infix2Postfix(infix2)
-result1 = evalPostfix(infix1)
-result2 = evalPostfix(infix2)
+#result1 = evalPostfix(infix1)
+#result2 = evalPostfix(infix2)
 print('중위표기 : ',infix1)
-print('후위표기 : ', postfix1)
+#print('후위표기 : ', result1)
 print('중위표기 : ',infix2)
-print('후위표기 : ', postfix2)
+#print('후위표기 : ', result2)
