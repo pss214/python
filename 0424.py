@@ -44,14 +44,13 @@ even.display(' 스택 even push 5회 : ')
 odd.display(' 스텍 odd push 5회 : ')
 print('스택 even peek :', even.peek())
 print('스택 odd peek :', odd.peek())
-for _ in range(2):
+for i in range(2):
     even.pop()
-for _ in range(3):
-    even.pop()
+for i in range(3):
+    odd.pop()
 even.display(' 스택 even pop 2회 : ')
 odd.display(' 스텍 odd pop 3회 : ')
-'''  
-
+'''
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -125,7 +124,6 @@ s.delete(s.size()-1)
 s.delete(0)
 s.display('단순연결리스트로 구현한 리스트(삭제x3) : ')
 '''
-
 class CircularLinkedQueue:
     def __init__(self):
         self.tail = None
@@ -172,15 +170,14 @@ class CircularLinkedQueue:
                 n = n.link
             print(n.data, end='->')
             print('None')
-'''
+
 q = CircularLinkedQueue()
 for i in range(8):
     q.enqueue(i)
-q.display()
+q.display("연결된 큐 8번 삽입 : ")
 for i in range(5):
     q.dequeue()
-q.display()
+q.display("연결된 큐 5번 삭제 : ")
 for i in range(8,14):
     q.enqueue(i)
-q.display()
-'''
+q.display("연결된 큐 뒤쪽 6번 삽입 : ")
