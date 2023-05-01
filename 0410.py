@@ -99,6 +99,7 @@ class CircularDeque(CircularQueue):
             return item
     def getRear(self):
         return self.items[self.rear]
+'''
 dq = CircularDeque()
 for i in range(9):
     if i%2 == 0 : dq.addRear(i)
@@ -109,3 +110,4 @@ for i in range(3): dq.deleteRear()
 dq.display()
 for i in range(9,14): dq.addFront(i)
 dq.display()
+'''

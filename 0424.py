@@ -170,7 +170,7 @@ class CircularLinkedQueue:
                 n = n.link
             print(n.data, end='->')
             print('None')
-
+'''
 q = CircularLinkedQueue()
 for i in range(8):
     q.enqueue(i)
@@ -181,3 +181,4 @@ q.display("연결된 큐 5번 삭제 : ")
 for i in range(8,14):
     q.enqueue(i)
 q.display("연결된 큐 뒤쪽 6번 삽입 : ")
+'''
