@@ -77,6 +77,7 @@ dq.display("연결리스트 덱 뒤쪽 5번 삽입 : ")
 def printStep(arr, val):
     print("  Step %2d = "% val, end='')
     print(arr)
+    
 def selection_sort(a):
     n = len(a)
     for i in range(n-1):
@@ -209,8 +210,6 @@ class ArrayList:
         while a < len(self.items) and b < len(setB.items):
             valueA = self.items[a]
             
-
-
 
 items = ArrayList()
 items.insert(4)
