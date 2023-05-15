@@ -1,12 +1,40 @@
 #트리
 ##노드의 갯수 2^(노드의 레벨)-1
-
+MAX_QSIZE = 10
 class TNode:                        
     def __init__ (self, data, left, right):   
         self.data = data                
         self.left = left               
-        self.right = right               
+        self.right = right          
 
+class CircularQueue :
+    def __init__(self):
+        self.front = 0
+        self.rear = 0
+        self.items = [None]*MAX_QSIZE
+    def isEmpty(self): return self.front == self.rear
+    def isFull(self): return self.front == (self.rear+1)%MAX_QSIZE
+    def clear(self): self.front = self.rear
+    def enqueue(self, item):
+        if not self.isFull():
+            self.rear = (self.rear+1)%MAX_QSIZE
+            self.items[self.rear] = item
+    def dequeue(self):
+        if not self.isEmpty():
+            self.front = (self.front+1)%MAX_QSIZE
+            return self.items[self.front]
+    def peek(self):
+        if not self.isEmpty():
+            return self.items[(self.front+1) %MAX_QSIZE]
+    def size(self):
+        return (self.rear - self.front + MAX_QSIZE) % MAX_QSIZE
+    def display(self):
+        out = []
+        if self.front < self.rear:
+            out = self.items[self.front+1:self.rear+1]
+        else:
+            out = self.items[self.front+1:MAX_QSIZE] + self.items[0:self.rear+1]
+        print("[f=%s,r=%d] ==> "%(self.front, self.rear), out )
 def preorder(n) :            
     if n is not None :
         print(n.data, end=' ')   
@@ -24,7 +52,6 @@ def postorder(n) :
         postorder(n.left)
         postorder(n.right)
         print(n.data, end=' ')
-
 
 def levelorder(root) :
     queue = CircularQueue()         
@@ -49,7 +76,6 @@ def count_leaf(n) :
         return 1
     else :       
         return count_leaf(n.left) + count_leaf(n.right)
-
 
 def calc_height(n) :
     if n is None :                
@@ -186,6 +212,45 @@ heap.display('[ 삭제 후 ]: ')
 heap.delete()                    
 heap.display('[ 삭제 후 ]: ')      
 """
+class MinHeap :               
+    def __init__ (self) :      
+        self.heap = []         
+        self.heap.append(0)      
+
+    def size(self) : return len(self.heap) - 1   
+    def isEmpty(self) : return self.size() == 0   
+    def Parent(self, i) : return self.heap[i//2]
+    def Left(self, i) : return self.heap[i*2]   
+    def Right(self, i) : return self.heap[i*2+1]
+    def display(self, msg = '힙 트리: ') :
+        print(msg, self.heap[1:])   
+
+    def insert(self, n) :
+        self.heap.append(n)      
+        i = self.size()         
+        while (i != 1 and n < self.Parent(i)): 
+            self.heap[i] = self.Parent(i)      
+            i = i // 2                        
+        self.heap[i] = n                     
+
+    def delete(self) :
+        parent = 1
+        child = 2
+        if not self.isEmpty() :
+            hroot = self.heap[1]          
+            last = self.heap[self.size()]   
+            while (child <= self.size()):   
+                if child<self.size() and self.Left(parent)<self.Right(parent):
+                    child += 1
+                if last >= self.heap[child] :       
+                    break;                          
+                self.heap[parent] = self.heap[child]
+                parent = child
+                child *= 2
+
+            self.heap[parent] = last   
+            self.heap.pop(-1)          
+            return hroot
 def make_tree(freq):
     heap = MinHeap()
     for n in freq :
@@ -196,8 +261,7 @@ def make_tree(freq):
         e2 = heap.delete()
         heap.insert(e1 + e2)
         print(" (%d+%d)" % (e1, e2))
-'''
+
 label = [ 'E', 'T', 'N', 'I', 'S' ]
 freq  = [15, 12, 8, 6, 4 ]
 make_tree(freq)
-'''
