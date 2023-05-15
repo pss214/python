@@ -111,7 +111,7 @@ class SequentialMap:
             return None
     def delete(self, key):
         for i in range(self.size()):
-            if self.table[i] == key:
+            if self.table[i].key == key:
                 self.table.pop(i)
                 return
 
