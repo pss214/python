@@ -161,6 +161,7 @@ for code in mlist:
     print(ch, end='')
 print()
 '''
+
 class MaxHeap :               
     def __init__ (self) :      
         self.heap = []         
@@ -195,12 +196,12 @@ class MaxHeap :
                     break;                          
                 self.heap[parent] = self.heap[child]
                 parent = child
-                child *= 2;
+                child *= 2
 
             self.heap[parent] = last   
             self.heap.pop(-1)          
             return hroot             
-"""
+'''
 heap = MaxHeap()                 
 data = [2, 5, 4, 8, 9, 3, 7, 3]      
 print("[삽입 연산]: ", data)
@@ -211,7 +212,8 @@ heap.delete()
 heap.display('[ 삭제 후 ]: ')      
 heap.delete()                    
 heap.display('[ 삭제 후 ]: ')      
-"""
+'''
+
 class MinHeap :               
     def __init__ (self) :      
         self.heap = []         
@@ -231,7 +233,7 @@ class MinHeap :
         while (i != 1 and n < self.Parent(i)): 
             self.heap[i] = self.Parent(i)      
             i = i // 2                        
-        self.heap[i] = n                     
+        self.heap[i] = n                    
 
     def delete(self) :
         parent = 1
@@ -240,9 +242,9 @@ class MinHeap :
             hroot = self.heap[1]          
             last = self.heap[self.size()]   
             while (child <= self.size()):   
-                if child<self.size() and self.Left(parent)<self.Right(parent):
+                if child<self.size() and self.Left(parent)>self.Right(parent):
                     child += 1
-                if last >= self.heap[child] :       
+                if last <= self.heap[child] :       
                     break;                          
                 self.heap[parent] = self.heap[child]
                 parent = child
